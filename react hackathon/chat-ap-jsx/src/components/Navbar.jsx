@@ -34,6 +34,16 @@ function Navbar() {
                 </Link>
               </li>
               <li>
+                <Link to="/donate" className="hover:text-gray-200">
+                  Donate
+                </Link>
+              </li>
+              <li>
+                <Link to="/doner" className="hover:text-gray-200">
+                  Donees
+                </Link>
+              </li>
+              <li>
                 <Link to="/contact" className="hover:text-gray-200">
                   Contact
                 </Link>
