@@ -40,12 +40,7 @@ function Navbar() {
               </li>
               <li>
                 <Link to="/doner" className="hover:text-gray-200">
-                  Donees
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="hover:text-gray-200">
-                  Contact
+                  Donors
                 </Link>
               </li>
             </ul>

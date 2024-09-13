@@ -31,7 +31,6 @@ function App() {
               )
             }
           />
-          <Route path="/contact" element={<Contact />} />
           <Route path="/donate" element={<Donate />} />
           <Route path="/doner" element={<Doner />} />
         </Routes>
