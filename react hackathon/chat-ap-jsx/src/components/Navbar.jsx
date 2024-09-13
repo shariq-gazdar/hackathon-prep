@@ -30,7 +30,7 @@ function Navbar() {
               </li>
               <li>
                 <Link to="/chat" className="hover:text-gray-200">
-                  Chat
+                  Ask For Blood
                 </Link>
               </li>
               <li>
