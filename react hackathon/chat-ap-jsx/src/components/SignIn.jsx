@@ -2,6 +2,7 @@ import {
   GoogleAuthProvider,
   signInWithRedirect,
   signInWithPopup,
+  signOut,
 } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 
@@ -32,11 +33,30 @@ const googleSignIn = () => {
       console.error("Error during sign-in:", errorMessage);
     });
 };
+const signOutUser = () => {
+  signOut(auth)
+    .then(() => {
+      console.log("User signed out");
+    })
+    .catch((error) => {
+      console.error("Error signing out:", error);
+    });
+};
 
 function SignIn() {
+  const [user] = useAuthState(auth);
   return (
     <div className="mr-10">
-      <GoogleButton onClick={googleSignIn} />
+      {user ? (
+        <button
+          onClick={signOutUser}
+          className="bg-red-500 text-white p-2 rounded"
+        >
+          Sign Out
+        </button>
+      ) : (
+        <GoogleButton onClick={googleSignIn} />
+      )}
     </div>
   );
 }
