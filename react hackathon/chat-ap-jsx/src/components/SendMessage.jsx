@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { auth, db } from "../firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+
+let messageAudio;
 
 const style = {
   form: `h-14 w-screen  fixed  flex text-xl  bottom-0 z-10 `,
@@ -10,6 +12,11 @@ const style = {
 
 const SendMessage = ({ scroll }) => {
   const [input, setInput] = useState("");
+
+  useEffect(() => {
+    // Load the audio file when the component mounts
+    messageAudio = new Audio("message_sound.wav");
+  }, []);
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -26,6 +33,12 @@ const SendMessage = ({ scroll }) => {
     });
     setInput("");
     scroll.current.scrollIntoView({ behavior: "smooth" });
+
+    // Play the audio after the message is sent
+    messageAudio
+      .play()
+      .then(() => console.log("Audio played"))
+      .catch((error) => console.error("Audio play failed", error));
   };
 
   return (
